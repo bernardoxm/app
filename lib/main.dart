@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    
+    return  MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text('Menu de Cards'),
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
                 title: Text(menuItem.title),
                trailing: LayoutBuilder(
   builder: (context, constraints) {
-    return Container(
+    double maxWidth = MediaQuery.of(context).size.width;
+    return Container(      
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         children: <Widget>[
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          if (constraints.maxWidth > 400) // Verifica a largura da tela
+          if (constraints.maxWidth < maxWidth) // Verifica a largura da tela
             Icon(
               Icons.star,
               size: 24,
